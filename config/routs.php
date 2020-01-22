@@ -1,7 +1,17 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: moksleivis
- * Date: 2020-01-20
- * Time: 09:12
- */
+if (isset($_GET['page'])){
+    switch (htmlspecialchars($_GET['page'])){
+        case 'Visi':
+            include ('templates/pages/all_movies.page.php');
+            break;
+        case 'Zanrai':
+            include ('templates/pages/add_genre.page.php');
+            break;
+        case 'Paieska':
+            include ('templates/pages/search.page.php');
+            break;
+        default:
+    }
+} else {
+    include ('templates/pages/home.page.php');
+}

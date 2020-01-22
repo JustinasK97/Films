@@ -31,10 +31,14 @@
 
         <?php include"_partials/nav.view.php"?>
 
-        <div class="container-fluid">
-            <h1 class="mt-4">Filmai</h1>
-            <p>Čia bus naujausi filmai</p>
-        </div>
+        <main class="container-fluid">
+            <?php
+//            echo $_SERVER['DOCUMENT_ROOT'].'/trecias/config/routs.php';
+            require ($_SERVER['DOCUMENT_ROOT'].'/justinas/trecias/config/routs.php');
+            ?>
+
+        </main>
+
     </div>
     <!-- /#page-content-wrapper -->
 

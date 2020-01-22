@@ -2,7 +2,7 @@
 $navigation = [
     'leftside' => [
         'Visi' => "Visi filmai",
-        'Žanrai' => "Filmai pagal žanrą",
+        'Zanrai' => "Filmai pagal žanrą",
         'Paieska' => "Paieška",
 
     ],
