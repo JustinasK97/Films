@@ -53,11 +53,11 @@ if (isset($_POST['searchForIT'])) :?>
 
         <tr>
             <td><?=$filmas['id'];?></td>
-            <td><?=$filmas['pavadinimas'];?></td>
-            <td><?=$filmas['metai'];?></td>
-            <td><?=$filmas['rezisierius'];?></td>
+            <td><?=$filmas['Pavadinimas'];?></td>
+            <td><?=$filmas['Metai'];?></td>
+            <td><?=$filmas['Rezisierius'];?></td>
             <td><?=$filmas['imdb'];?></td>
-            <td><?=$filmas['aprasymas'];?></td>
+            <td><?=$filmas['Aprasymas'];?></td>
         </tr>
         <?php endforeach;?>
     </table>
