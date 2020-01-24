@@ -5,10 +5,13 @@ if (isset($_GET['page'])){
             include ('templates/pages/all_movies.page.php');
             break;
         case 'Zanrai':
-            include ('templates/pages/add_genre.page.php');
+            include ('templates/pages/genres.page.php');
             break;
         case 'Paieska':
             include ('templates/pages/search.page.php');
+            break;
+        case 'filmu-valdymas':
+            include ('pages/add_films.page.php');
             break;
         default:
     }

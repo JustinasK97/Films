@@ -11,10 +11,11 @@ try{
 
     echo $e->getMessage();
 }?>
+<a href="/?page=naujas-filmas" class="btn btn-primary">Naujas Filmas</a>
 <table class="table table-bordered">
     <tr>
         <?php
-        foreach ($filmai as $filmas):?>
+        foreach ($filmai as $column => $filmas):?>
     </tr>
     <tr>
         <td><?=$filmas['id'];?></td>
@@ -22,8 +23,10 @@ try{
         <td><?=$filmas['Metai'];?></td>
         <td><?=$filmas['Rezisierius'];?></td>
         <td><?=$filmas['imdb'];?></td>
-        <td><?=$filmas['Zanro_id'];?></td>
+        <td><?=$filmas['zanrai'];?></td>
         <td><?=$filmas['Aprasymas'];?></td>
+        <td><a href="?page=filmo-redagavimas&id=<?=$filmas['id'];?>">Redaguoti</a></td>
+        <td><a href="?page=filmo-salinimas&id=<?=$filmas['id'];?>">Šalinti</a></td>
     </tr>
     <?php endforeach;?>
 </table>

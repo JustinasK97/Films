@@ -33,7 +33,7 @@
 
         <main class="container-fluid">
             <?php
-//            echo $_SERVER['DOCUMENT_ROOT'].'/trecias/config/routs.php';
+//            echo $_SERVER['DOCUMENT_ROOT'].'/justinas/trecias/config/routs.php';
             require ($_SERVER['DOCUMENT_ROOT'].'/justinas/trecias/config/routs.php');
             ?>
 
