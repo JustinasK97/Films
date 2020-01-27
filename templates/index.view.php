@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <title>Filmai</title>
 
     <!-- Bootstrap core CSS -->
     <link href="templates/css/bootstrap.min.css" rel="stylesheet">

@@ -2,9 +2,13 @@
 <?php
 $dsn= "mysql:host=$host; dbname=$db";
 try{
-    $conn = new PDO($dsn, $username, $password);
-    if($conn){
-        $stmt = $conn->query("SELECT * FROM filmai");
+    $conn = new PDO ($dsn, $username, $password,$options);
+    if ($conn){
+
+        $stmt = $conn->query("SELECT filmai.id, filmai.pavadinimas, filmai.aprasymas,
+        filmai.metai, filmai.imdb, filmai.zanrai, filmai.rezisierius, zanrai.pavadinimas As zanro_pavadinimas
+        FROM filmai
+        INNER JOIN zanrai ON filmai.zanrai=zanrai.id");
         $filmai = $stmt->fetchAll();
     }
 }catch (PDOException $e){
@@ -19,12 +23,12 @@ try{
     </tr>
     <tr>
         <td><?=$filmas['id'];?></td>
-        <td><?=$filmas['Pavadinimas'];?></td>
-        <td><?=$filmas['Metai'];?></td>
-        <td><?=$filmas['Rezisierius'];?></td>
+        <td><?=$filmas['pavadinimas'];?></td>
+        <td><?=$filmas['metai'];?></td>
+        <td><?=$filmas['rezisierius'];?></td>
         <td><?=$filmas['imdb'];?></td>
-        <td><?=$filmas['zanrai'];?></td>
-        <td><?=$filmas['Aprasymas'];?></td>
+        <td><?=$filmas['zanro_pavadinimas'];?></td>
+        <td><?=$filmas['aprasymas'];?></td>
         <td><a href="?page=filmo-redagavimas&id=<?=$filmas['id'];?>">Redaguoti</a></td>
         <td><a href="?page=filmo-salinimas&id=<?=$filmas['id'];?>">Šalinti</a></td>
     </tr>

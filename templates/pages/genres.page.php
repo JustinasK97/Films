@@ -8,8 +8,8 @@ $filmuZanrai = $stmt->fetchAll();
 
 if (isset($_GET['id'])){
 $zid = $_GET['id'];
-$stmt = $conn->query("SELECT filmai.Pavadinimas, filmai.Aprasymas,
-filmai.Metai, filmai.Rezisierius, zanrai.pavadinimas AS zanroPavadinimas
+$stmt = $conn->query("SELECT filmai.pavadinimas, filmai.aprasymas,
+filmai.metai, filmai.rezisierius, zanrai.pavadinimas AS zanroPavadinimas
 FROM filmai
 INNER JOIN zanrai ON filmai.zanrai=zanrai.id
 WHERE $zid=zanrai.id");

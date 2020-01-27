@@ -4,17 +4,17 @@ $conn = new PDO($dsn, $username, $password, $options);
 if (isset($_POST['submit'])){
     try {
         if ($conn){
-            $sql = "INSERT INTO filmai (Pavadinimas, Metai, Rezisierius, imdb, zanrai, Aprasymas)
-VALUES (:Pavadinimas, :Metai, :Rezisierius, :imdb, :zanrai, :Aprasymas)";
+            $sql = "INSERT INTO filmai (pavadinimas, metai, rezisierius, imdb, zanrai, aprasymas)
+VALUES (:pavadinimas, :metai, :rezisierius, :imdb, :zanrai, :aprasymas)";
             $stmt = $conn->prepare($sql);
-            $stmt->bindParam(':Pavadinimas', $_POST['movie_title'], PDO::PARAM_STR);
-            $stmt->bindParam(':Metai', $_POST['movie_date'], PDO::PARAM_STR);
-            $stmt->bindParam(':Rezisierius', $_POST['director'], PDO::PARAM_STR);
+            $stmt->bindParam(':pavadinimas', $_POST['movie_title'], PDO::PARAM_STR);
+            $stmt->bindParam(':metai', $_POST['movie_date'], PDO::PARAM_STR);
+            $stmt->bindParam(':rezisierius', $_POST['director'], PDO::PARAM_STR);
             $stmt->bindParam(':imdb', $_POST['movie_rating'], PDO::PARAM_STR);
-            $stmt->bindParam(':zanrai', $_POST['genres_id'], PDO::PARAM_STR);
-            $stmt->bindParam(':Aprasymas', $_POST['about'], PDO::PARAM_STR);
+            $stmt->bindParam(':zanrai', $_POST['genres'], PDO::PARAM_STR);
+            $stmt->bindParam(':aprasymas', $_POST['about'], PDO::PARAM_STR);
             $stmt->execute();
-            header('Location:/justinas/?page=visi');
+            header('Location:/justinas/trecias/?page=visi');
         }
     } catch (PDOException $e) {
 
@@ -30,11 +30,11 @@ VALUES (:Pavadinimas, :Metai, :Rezisierius, :imdb, :zanrai, :Aprasymas)";
         <input type="text" class="form-control" id="pavadinimas" placeholder="pavadinimas" name="movie_title">
     </div>
     <div class="form-group">
-        <label for="director">Director</label>
-        <input type="text" class="form-control" id="Director" placeholder="Director" name="director">
+        <label for="director">Rezisierius</label>
+        <input type="text" class="form-control" id="rezisierius" placeholder="Rezisierius" name="director">
     </div>
     <div class="form-group">
-        <label for="movie_rating">Metai</label>
+        <label for="movie_date">Metai</label>
         <select class="form-control form-control-sm" name="movie_date">
             <?php
             for ($i=1900; $i<2021; $i++):?>
@@ -42,7 +42,7 @@ VALUES (:Pavadinimas, :Metai, :Rezisierius, :imdb, :zanrai, :Aprasymas)";
             <?php endfor;?>
         </select>
         <div class="form-group">
-            <label for="Movie_date">IMDB</label>
+            <label for="movie_rating">IMDB</label>
             <select class="form-control form-control-sm" name="movie_rating">
                 <?php
                 for ($i=10; $i<=100; $i++):?>
@@ -65,7 +65,7 @@ VALUES (:Pavadinimas, :Metai, :Rezisierius, :imdb, :zanrai, :Aprasymas)";
             echo $e->getMessage();
         }?>
         <label for="about">Pasirinkite žanrą</label>
-        <select class="form-control form-control-sm" name="genres_id">
+        <select class="form-control form-control-sm" name="genres">
             <?php
             foreach ($zanrai as $zanras):?>
                 <option value="<?=$zanras['id']?>"><?=$zanras['pavadinimas']?></option>
